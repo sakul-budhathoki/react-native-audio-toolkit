@@ -140,7 +140,6 @@ RCT_EXPORT_METHOD(prepare:(nonnull NSNumber*)playerId
     NSString *avAudioSessionCategory;
     switch ([category intValue]) {
         case 1:
-        default:
             avAudioSessionCategory = AVAudioSessionCategoryPlayback;
             break;
         case 2:
@@ -148,6 +147,9 @@ RCT_EXPORT_METHOD(prepare:(nonnull NSNumber*)playerId
             break;
         case 3:
             avAudioSessionCategory = AVAudioSessionCategorySoloAmbient;
+            break;
+        default:
+            avAudioSessionCategory = AVAudioSessionCategoryPlayback;
             break;
     }
     NSNumber *mixWithOthers = [options objectForKey:@"mixWithOthers"];
